@@ -1,8 +1,8 @@
-# iCYP-MFE: Indentifying Human Cytochrome P450 Inhibitors using Multi-task Learning and Molecular Fingerprint-embedded Encoding
+# iANP-EC: Identifying Anticancer Natural Products using Ensemble Learning Incorporated with Evolutionary Computing
 
 #### L. Nguyen, T-H Nguyen-Vo, Q. H. Trinh, B. H. Nguyen, P-U. Nguyen-Hoang, [L. Le](http://cbc.bio.hcmiu.edu.vn/)∗, and [B. P. Nguyen](https://homepages.ecs.vuw.ac.nz/~nguyenb5/about.html)∗
 
-![alt text](https://github.com/mldlproject/2020-CYP450-mCNN/blob/main/iANP-EC_abs.svg)
+![alt text](https://github.com/mldlproject/2021-iANP-EC/blob/main/iANP-EC_abs.svg)
 
 ## Motivation
 Cancer is one of the most deadly diseases that annually kill millions of people
