@@ -1,5 +1,8 @@
+# Import libraries
 import pandas as pd
 
+#============================================================
+# Process rawfile of RDKit MD 
 for i in range(10):
     test  = pd.read_csv("../data/ten_seeds/seed_{}/rdkit_md/result.csv".format(i)).iloc[::,0:-1]
     train = pd.read_csv("../data/ten_seeds/seed_{}/rdkit_md/result (1).csv".format(i)).iloc[::,0:-1]
