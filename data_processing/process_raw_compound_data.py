@@ -32,7 +32,6 @@ filtered_canonical_inactive = df_canonical_inactive.drop_duplicates(subset=['SMI
 
 #------------------------------------------------------------
 # Refine dataset
-
 filtered_canonical_active['Label']   = np.ones(len(filtered_canonical_active), dtype=int)
 filtered_canonical_inactive['Label'] = np.zeros(len(filtered_canonical_inactive), dtype=int)
 
