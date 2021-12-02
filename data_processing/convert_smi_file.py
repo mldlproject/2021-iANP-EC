@@ -1,6 +1,9 @@
+# Import libraries
 from utils import *
 import pandas as pd
 
+#============================================================
+# Convert csv to smi files
 for i in range(10):
     dataset = ['train', 'val', 'test']
     for d in dataset:
