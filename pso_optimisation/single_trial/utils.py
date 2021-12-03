@@ -69,6 +69,7 @@ def get_optimasation_function(preds, labels, auc_type='roc'):
         return aucroc_optimisation
     elif auc_type == 'pr':
         return aucpr_optimisation
+    
 #============================================================
 def extract_weight(opt_weight):
     w1, w2, w3, w4 = opt_weight[0], opt_weight[1], opt_weight[2], opt_weight[3]
