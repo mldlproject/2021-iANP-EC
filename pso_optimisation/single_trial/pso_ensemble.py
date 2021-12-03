@@ -68,6 +68,7 @@ val_pred_svm_mf1024  = my_svm_mf1024.fit(train_mf1024, train_label).predict_prob
 val_pred_svm_mf2048  = my_svm_mf2048.fit(train_mf2048, train_label).predict_proba(val_mf2048)[::,1]
 val_pred_rf_md       = my_rf_md.fit(train_md, train_label).predict_proba(val_md)[::,1]
 val_pred_xgb_mol2vec = my_xgb_mol2vec.fit(train_mol2vec, train_label).predict_proba(val_mol2vec)[::,1]
+
 #============================================================
 # Optimization
 lb, ub = [0.1, 0.1, 0.1, 0.1], [0.5, 0.5, 0.5, 0.5]
@@ -96,6 +97,7 @@ w1_avage_norm = np.round(np.mean(w1_list), 4)
 w2_avage_norm = np.round(np.mean(w2_list), 4)
 w3_avage_norm = np.round(np.mean(w3_list), 4)
 w4_avage_norm = np.round(np.mean(w4_list), 4)
+
 #============================================================
 # Testing 
 test_pred_svm_mf1024   = my_svm_mf1024.fit(np.concatenate([train_mf1024, val_mf1024]), np.concatenate([train_label, val_label])).predict_proba(test_mf1024)[::,1]
