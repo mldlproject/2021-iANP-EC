@@ -10,7 +10,6 @@ from imblearn.pipeline import make_pipeline
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
-from sklearn.metrics import roc_auc_score
 
 #============================================================
 # Remove Low-variance Features
@@ -69,12 +68,13 @@ val_pred_svm_mf1024  = my_svm_mf1024.fit(train_mf1024, train_label).predict_prob
 val_pred_svm_mf2048  = my_svm_mf2048.fit(train_mf2048, train_label).predict_proba(val_mf2048)[::,1]
 val_pred_rf_md       = my_rf_md.fit(train_md, train_label).predict_proba(val_md)[::,1]
 val_pred_xgb_mol2vec = my_xgb_mol2vec.fit(train_mol2vec, train_label).predict_proba(val_mol2vec)[::,1]
-
 #============================================================
 # Optimization
 lb, ub = [0.1, 0.1, 0.1, 0.1], [0.5, 0.5, 0.5, 0.5]
-
 weight_list = []
+
+val_ensemble_pred = [val_pred_svm_mf1024, val_pred_svm_mf2048, val_pred_rf_md, val_pred_xgb_mol2vec]
+auc_optimasation  = get_optimasation_function(val_ensemble_pred, val_label)
 
 seed_range = np.arange(0,10)
 
