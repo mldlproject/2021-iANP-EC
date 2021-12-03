@@ -30,25 +30,45 @@ def printPerformance(labels, probs, printout=False, decimal=4):
     return round(roc_auc, d), round(pr_auc, d), round(acc, d), round(ba, d), round(sensitivity, 4), round(specificity, 4), round(precision, 4), round(mcc, 4), round(f1, 4), round(ck, 4) 
 
 #============================================================
-def auc_optimasation(weight, preds, labels):
-    w1, w2, w3, w4 = weight[0], weight[1], weight[2], weight[3]
+def get_optimasation_function(preds, labels, auc_type='roc'):
     preds_1, preds_2, preds_3, preds_4 = preds[0], preds[1], preds[2], preds[3]
-    labels_ = labels
+    labels = labels
     #--------------------------------------
-    w1_norm = w1/(w1 + w2 + w3 + w4)
-    w2_norm = w2/(w1 + w2 + w3 + w4)
-    w3_norm = w3/(w1 + w2 + w3 + w4)
-    w4_norm = w4/(w1 + w2 + w3 + w4)
-    #--------------------------------------
-    preds_ensemble = (preds_1*w1_norm +
-                      preds_2*w2_norm + 
-                      preds_3*w3_norm + 
-                      preds_4*w4_norm)
-    #--------------------------------------
-    roc_auc = roc_auc_score(labels, preds_ensemble)
-    objective = 1 - roc_auc
-    return objective
-
+    def aucroc_optimisation(weight):
+        w1, w2, w3, w4 = weight[0], weight[1], weight[2], weight[3]
+        w1_norm = w1/(w1 + w2 + w3 + w4)
+        w2_norm = w2/(w1 + w2 + w3 + w4)
+        w3_norm = w3/(w1 + w2 + w3 + w4)
+        w4_norm = w4/(w1 + w2 + w3 + w4)
+        #--------------------------------------
+        preds_ensemble = (preds_1*w1_norm + 
+                          preds_2*w2_norm + 
+                          preds_3*w3_norm + 
+                          preds_4*w4_norm)
+        #--------------------------------------
+        roc_auc = roc_auc_score(labels, preds_ensemble)
+        objective = 1 - roc_auc
+        return objective
+        #--------------------------------------
+    def aucpr_optimisation(weight):
+        w1, w2, w3, w4 = weight[0], weight[1], weight[2], weight[3]
+        w1_norm = w1/(w1 + w2 + w3 + w4)
+        w2_norm = w2/(w1 + w2 + w3 + w4)
+        w3_norm = w3/(w1 + w2 + w3 + w4)
+        w4_norm = w4/(w1 + w2 + w3 + w4)
+        #--------------------------------------
+        preds_ensemble = (preds_1*w1_norm + 
+                          preds_2*w2_norm + 
+                          preds_3*w3_norm + 
+                          preds_4*w4_norm)
+        #--------------------------------------
+        roc_auc = average_precision_score(labels, preds_ensemble)
+        objective = 1 - roc_auc
+        return objective
+    if auc_type == 'roc':
+        return aucroc_optimisation
+    elif auc_type == 'pr':
+        return aucpr_optimisation
 #============================================================
 def extract_weight(opt_weight):
     w1, w2, w3, w4 = opt_weight[0], opt_weight[1], opt_weight[2], opt_weight[3]
