@@ -19,7 +19,7 @@ for i in range(10):
         #--------------------------------
         rdkit_md = np.array(extract_rdkitMD(data).iloc[::,1:])
         mf1024   = np.array(extract_MorganFP(data, bit_type=1024).iloc[::,1:])
-        mf2048   = np.array(extract_MorganFP(data, bit_type=1024).iloc[::,1:])
+        mf2048   = np.array(extract_MorganFP(data, bit_type=2048).iloc[::,1:])
         mol2vec  = extract_Mol2Vec(data)
         #--------------------------------
         np.save('../data/allseeds/seed_{}/featurised_data/rdkit_md_{}.npy'.format(i, dataset), rdkit_md)
