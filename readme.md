@@ -24,7 +24,7 @@ Source code and data are available on [GitHub](https://github.com/mldlproject/20
 
 ## Web-based Application
 - Source 1 ([Click here](http://14.231.244.182:8002/))
-- Source 2 ([Click here](http://192.168.1.7:8002/))
+- Source 2 ([Click here](http://124.197.54.240:8002/))
 
 ## Citation
 Nguyen, L., Nguyen Vo, T. H., Trinh, Q. H., Nguyen, B. H., Nguyen-Hoang, P. U., Le, L., & Nguyen, B. P. (2022). iANP-EC: Identifying Anticancer Natural Products Using Ensemble Learning Incorporated with Evolutionary Computation. *Journal of Chemical Information and Modeling*. [DOI: 10.1021/acs.jcim.1c00920](https://pubs.acs.org/doi/10.1021/acs.jcim.1c00920).
